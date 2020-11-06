@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
@@ -21,5 +22,5 @@ class CommentViewSet(viewsets.ModelViewSet):
 class UpvoteView(APIView):
     def get(self, request, pk):
         post = get_object_or_404(Post, pk=pk)
-        upvote = Upvote.objects.get_or_create(post=post)
-        return Response(upvote)
+        Upvote.objects.get_or_create(post=post)
+        return Response("Upvote created")

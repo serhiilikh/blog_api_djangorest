@@ -10,21 +10,21 @@ class CommentSerializer(ModelSerializer):
         fields = "__all__"
 
 
-# class UpvoteSerializer(ModelSerializer):
-#     class Meta:
-#         model = Upvote
-#         fields = "__all__"
+class UpvoteSerializer(ModelSerializer):
+    class Meta:
+        model = Upvote
+        fields = "__all__"
 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
-    upvote_count = SerializerMethodField('get_upvote_count')
+    upvote_count = SerializerMethodField("get_upvote_count")
 
     class Meta:
         model = Post
         fields = (
             "id",
             "title",
-            "text",
+            "link",
             "upvote_count",
             "author",
             "created",

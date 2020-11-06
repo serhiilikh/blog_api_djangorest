@@ -1,6 +1,9 @@
-from core.views import CommentViewSet, PostViewSet, UpvoteView
 from django.urls import include, path
+
 from rest_framework import routers
+
+from core.views import CommentViewSet, PostViewSet, UpvoteView
+
 
 router = routers.DefaultRouter()
 router.register("posts", PostViewSet)
